@@ -12,4 +12,9 @@ public class YourName {
         System.out.println("Ash.");
     }
 }
+public class YourName {
+    public static void main(String[] args) {
+        System.out.println("hello.");
+    }
+}
 >>>>>>> a1f40f24d71b3eb585e3c79d4d2a956ffab9d656
