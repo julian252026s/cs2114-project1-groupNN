@@ -6,15 +6,17 @@ public class YourName {
     public static void main(String[] args) {
         System.out.println("Your Julian is on the team.");
     }
-=======
+}
 public class YourName {
     public static void main(String[] args) {
         System.out.println("Ash.");
     }
 }
+<<<<<<< Updated upstream
 public class YourName {
     public static void main(String[] args) {
         System.out.println("hello.");
     }
 }
 >>>>>>> a1f40f24d71b3eb585e3c79d4d2a956ffab9d656
+>>>>>>> Stashed changes
