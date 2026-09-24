@@ -9,6 +9,7 @@ import student.TestCase;
  * @author Ash Satasia
  * @version Sep 24, 2026
  */
+public class ProjectGameTest
     extends TestCase
 {
     private ProjectGame game;
