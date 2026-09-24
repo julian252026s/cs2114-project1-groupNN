@@ -2,15 +2,19 @@ package game;
 
 import student.TestCase;
 
-public class InputHandlerTest extends TestCase
+public class InputHandlerTest
+    extends TestCase
 {
     private InputHandler handler;
 
-    public void setUp() {
+    public void setUp()
+    {
         handler = new InputHandler();
     }
 
-    public void testValidateCommand() {
+
+    public void testValidateCommand()
+    {
         assertNull(handler.validateCommand(null));
         assertNull(handler.validateCommand(""));
         assertNull(handler.validateCommand("   "));
@@ -21,7 +25,9 @@ public class InputHandlerTest extends TestCase
         assertEquals("TAKE", handler.validateCommand("TAKE sword"));
     }
 
-    public void testIsValidCommand() {
+
+    public void testIsValidCommand()
+    {
         assertTrue(handler.isValidCommand("RIGHT"));
         assertTrue(handler.isValidCommand("QUIT"));
         assertFalse(handler.isValidCommand("go"));
