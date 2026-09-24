@@ -1,3 +1,5 @@
+package game;
+
 public class Item
 {
     //~ Fields ................................................................
@@ -5,61 +7,99 @@ public class Item
     private String description;
     private int weight;
     private boolean removable;
-    
+
     //~ Constructors ..........................................................
     /**
      * Initializes a newly created Item object
-     * @param name 
-     * @param description 
-     * @param weight 
+     *
+     * @param name
+     *            item name
+     * @param description
+     *            item description
+     * @param weight
+     *            item weight
      */
-    public Item(String name, String description, int weight)
+    public Item(
+        String name,
+        String description,
+        int weight)
     {
         super();
+
         this.name = name;
         this.description = description;
         this.weight = weight;
         this.removable = true;
     }
-    //~Public  Methods ........................................................
+
     /**
-     * Gets the name 
-     * @return name for the string
+     * Initializes an Item with a default weight.
+     *
+     * @param name
+     *            item name
+     * @param description
+     *            item description
+     */
+    public Item(
+        String name,
+        String description)
+    {
+        this(
+            name,
+            description,
+            5);
+    }
+
+    //~Public Methods ..........................................................
+
+    /**
+     * Gets the name.
+     *
+     * @return name
      */
     public String getName()
     {
         return name;
     }
+
     /**
-     * Gets the description used
+     * Gets the description.
+     *
      * @return description
      */
     public String getDescription()
     {
         return description;
     }
+
     /**
-     * Gets the weight
+     * Gets the weight.
+     *
      * @return weight
      */
     public int getWeight()
     {
         return weight;
     }
+
     /**
-     * Gets if the boolean is removable
-     * @return removable object
+     * Gets if the item is removable.
+     *
+     * @return removable
      */
     public boolean isRemovable()
     {
         return removable;
     }
-    
+
     /**
-     * gets the removable value
+     * Sets the removable value.
+     *
      * @param value
+     *            new removable value
      */
-    public void setRemovable(boolean value)
+    public void setRemovable(
+        boolean value)
     {
         removable = value;
     }

@@ -3,7 +3,7 @@ package game;
 // -------------------------------------------------------------------------
 /**
  * Puzzle class holds the puzzles in the Rooms that players need to solve
- * 
+ *
  * @author Ari Bajaj
  * @version Sep 23, 2026
  */
@@ -17,7 +17,7 @@ public class Puzzle
     // ----------------------------------------------------------
     /**
      * Create a new Puzzle object.
-     * 
+     *
      * @param question
      *            - the puzzle question
      * @param answer
@@ -25,19 +25,22 @@ public class Puzzle
      * @param hint
      *            - a hint to solving the puzzle
      */
-    public Puzzle(String question, String answer, String hint)
+    public Puzzle(
+        String question,
+        String answer,
+        String hint)
     {
         this.question = question;
         this.answer = answer;
         this.hint = hint;
+
         solved = false;
     }
-
 
     // ----------------------------------------------------------
     /**
      * Returns the puzzle question
-     * 
+     *
      * @return question
      */
     public String getQuestion()
@@ -45,11 +48,10 @@ public class Puzzle
         return question;
     }
 
-
     // ----------------------------------------------------------
     /**
      * Returns the puzzle answer
-     * 
+     *
      * @return answer
      */
     public String getAnswer()
@@ -57,11 +59,10 @@ public class Puzzle
         return answer;
     }
 
-
     // ----------------------------------------------------------
     /**
      * Returns the puzzle hint
-     * 
+     *
      * @return hint
      */
     public String getHint()
@@ -69,11 +70,10 @@ public class Puzzle
         return hint;
     }
 
-
     // ----------------------------------------------------------
     /**
      * Returns if the puzzle has been solved or not
-     * 
+     *
      * @return solved
      */
     public boolean isSolved()
@@ -81,23 +81,27 @@ public class Puzzle
         return solved;
     }
 
-
     // ----------------------------------------------------------
     /**
-     * Checks the answer that the player has entered against the puzzle answer
-     * 
+     * Checks the answer that the player has entered
+     * against the puzzle answer
+     *
      * @param playerAnswer
      *            - answer that the player has entered
-     * @return true if the player entered the right answer and sets the puzzle
-     *             to solved, false if not
+     * @return true if correct, false otherwise
      */
-    public boolean checkAnswer(String playerAnswer)
+    public boolean checkAnswer(
+        String playerAnswer)
     {
-        if (this.answer.equals(playerAnswer))
+        if (playerAnswer != null
+            && answer.equalsIgnoreCase(
+                playerAnswer.trim()))
         {
             solved = true;
+
             return true;
         }
+
         return false;
     }
 }

@@ -16,26 +16,21 @@ public class ProjectGameTest
     private Puzzle puzzle;
     private Player player;
 
-    // ----------------------------------------------------------
-    /**
-     * Sets up the objects before each test.
-     */
     public void setUp()
     {
-        game = new ProjectGame();
+        game =
+            new ProjectGame();
 
-        puzzle = new Puzzle(
-            "What is 2 + 2?",
-            "4",
-            "Hint: add 2 and 2");
+        puzzle =
+            new Puzzle(
+                "What is 2 + 2?",
+                "4",
+                "Hint: add 2 and 2");
 
-        player = new Player("Ash");
+        player =
+            new Player("Ash");
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests valid commands.
-     */
     public void testValidateCommand()
     {
         assertEquals(
@@ -55,10 +50,6 @@ public class ProjectGameTest
             game.validateCommand("fight"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests invalid commands.
-     */
     public void testInvalidCommand()
     {
         assertNull(
@@ -71,73 +62,59 @@ public class ProjectGameTest
             game.validateCommand(null));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests solving a puzzle correctly.
-     */
     public void testSolvePuzzleCorrect()
     {
         assertEquals(
             "You have solved the puzzle!",
-            game.solvePuzzle(puzzle, "4"));
+            game.solvePuzzle(
+                puzzle,
+                "4"));
 
         assertTrue(
             puzzle.isSolved());
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests solving a puzzle incorrectly.
-     */
     public void testSolvePuzzleIncorrect()
     {
         assertEquals(
             "Incorrect answer. Enter HINT if you would like a hint.",
-            game.solvePuzzle(puzzle, "5"));
+            game.solvePuzzle(
+                puzzle,
+                "5"));
 
         assertFalse(
             puzzle.isSolved());
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests solving a null puzzle.
-     */
     public void testSolveNullPuzzle()
     {
         assertEquals(
             "There is no puzzle to solve.",
-            game.solvePuzzle(null, "4"));
+            game.solvePuzzle(
+                null,
+                "4"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests entering an empty puzzle answer.
-     */
     public void testEmptyPuzzleAnswer()
     {
         assertEquals(
             "Please enter an answer.",
-            game.solvePuzzle(puzzle, ""));
+            game.solvePuzzle(
+                puzzle,
+                ""));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests trying to solve an already solved puzzle.
-     */
     public void testAlreadySolvedPuzzle()
     {
         puzzle.checkAnswer("4");
 
         assertEquals(
             "This puzzle has already been solved.",
-            game.solvePuzzle(puzzle, "4"));
+            game.solvePuzzle(
+                puzzle,
+                "4"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests getting a puzzle hint.
-     */
     public void testGetHint()
     {
         assertEquals(
@@ -145,10 +122,6 @@ public class ProjectGameTest
             game.getHint(puzzle));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests getting a hint when there is no puzzle.
-     */
     public void testGetHintNull()
     {
         assertEquals(
@@ -156,10 +129,6 @@ public class ProjectGameTest
             game.getHint(null));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests getting a hint after the puzzle is solved.
-     */
     public void testGetHintSolved()
     {
         puzzle.checkAnswer("4");
@@ -169,30 +138,20 @@ public class ProjectGameTest
             game.getHint(puzzle));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests a player without all required items.
-     */
     public void testMissingItems()
     {
         assertFalse(
-            game.hasAllRequiredItems(player));
+            game.hasAllRequiredItems(
+                player));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests a null player.
-     */
     public void testNullPlayerItems()
     {
         assertFalse(
-            game.hasAllRequiredItems(null));
+            game.hasAllRequiredItems(
+                null));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests fighting when the player is not in the lair.
-     */
     public void testFightWrongRoom()
     {
         assertEquals(
@@ -203,10 +162,6 @@ public class ProjectGameTest
                 "Castle Courtyard"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests fighting without all required items.
-     */
     public void testFightMissingItems()
     {
         assertEquals(
@@ -217,10 +172,6 @@ public class ProjectGameTest
                 "Dragon's Lair"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests fighting with a null player.
-     */
     public void testFightNullPlayer()
     {
         assertEquals(
@@ -230,13 +181,10 @@ public class ProjectGameTest
                 "Dragon's Lair"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests the help message.
-     */
     public void testShowHelp()
     {
-        String help = game.showHelp();
+        String help =
+            game.showHelp();
 
         assertTrue(
             help.contains("FORWARD"));
@@ -251,108 +199,117 @@ public class ProjectGameTest
             help.contains("FIGHT"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests movement commands.
-     */
     public void testMovementCommands()
     {
         assertTrue(
-            game.isMovementCommand("FORWARD"));
+            game.isMovementCommand(
+                "FORWARD"));
 
         assertTrue(
-            game.isMovementCommand("back"));
+            game.isMovementCommand(
+                "back"));
 
         assertTrue(
-            game.isMovementCommand("LEFT"));
+            game.isMovementCommand(
+                "LEFT"));
 
         assertTrue(
-            game.isMovementCommand("right"));
+            game.isMovementCommand(
+                "right"));
 
         assertFalse(
-            game.isMovementCommand("fight"));
+            game.isMovementCommand(
+                "fight"));
 
         assertFalse(
-            game.isMovementCommand(null));
+            game.isMovementCommand(
+                null));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests getting the argument after a command.
-     */
     public void testGetArgument()
     {
         assertEquals(
             "Sword",
-            game.getArgument("TAKE Sword"));
+            game.getArgument(
+                "TAKE Sword"));
 
         assertEquals(
             "Dungeon Key",
-            game.getArgument("TAKE Dungeon Key"));
+            game.getArgument(
+                "TAKE Dungeon Key"));
 
         assertEquals(
             "84",
-            game.getArgument("SOLVE 84"));
+            game.getArgument(
+                "SOLVE 84"));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests input with no argument.
-     */
     public void testNoArgument()
     {
         assertEquals(
             "",
-            game.getArgument("TAKE"));
+            game.getArgument(
+                "TAKE"));
 
         assertEquals(
             "",
-            game.getArgument(null));
+            game.getArgument(
+                null));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests having all six required items without changing
-     * the existing Player or Inventory classes.
-     */
     public void testHasAllRequiredItems()
     {
-        Player fullPlayer = new Player("Ash")
-        {
-            @Override
-            public String getInventory()
-            {
-                return
-                    "[Dungeon Key, Enchantment Room Key, "
-                    + "Strength Potion, Spell Book, Sword, Shield]";
-            }
-        };
+        addAllRequiredItems(
+            player);
 
         assertTrue(
-            game.hasAllRequiredItems(fullPlayer));
+            game.hasAllRequiredItems(
+                player));
     }
 
-    // ----------------------------------------------------------
-    /**
-     * Tests winning the dragon fight.
-     */
     public void testFightDragonWin()
     {
-        Player fullPlayer = new Player("Ash")
-        {
-            @Override
-            public String getInventory()
-            {
-                return
-                    "[Dungeon Key, Enchantment Room Key, "
-                    + "Strength Potion, Spell Book, Sword, Shield]";
-            }
-        };
+        addAllRequiredItems(
+            player);
 
         assertEquals(
             "Congratulations! You have defeated the dragon!",
             game.fightDragon(
-                fullPlayer,
+                player,
                 "Dragon's Lair"));
+    }
+
+    private void addAllRequiredItems(
+        Player target)
+    {
+        target.addItem(
+            new Item(
+                "Dungeon Key",
+                "Key"));
+
+        target.addItem(
+            new Item(
+                "Enchantment Room Key",
+                "Key"));
+
+        target.addItem(
+            new Item(
+                "Strength Potion",
+                "Potion"));
+
+        target.addItem(
+            new Item(
+                "Spell Book",
+                "Book"));
+
+        target.addItem(
+            new Item(
+                "Sword",
+                "Sword"));
+
+        target.addItem(
+            new Item(
+                "Shield",
+                "Shield"));
     }
 }
